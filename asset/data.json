@@ -1,0 +1,71 @@
+[
+  {
+    "id": "blog-app",
+    "name": "Bloglist Application",
+    "category": "Full Stack Web Development",
+    "description": "A full-stack web application for managing blog posts, user authentication, interactive features like liking and commenting, and fully automated testing and deployment pipelines.",
+    "techStack": {
+      "frontend": ["React", "Redux", "Axios"],
+      "backend": ["Node.js", "Express", "MongoDB", "Mongoose"],
+      "testing": ["Jest", "Supertest", "Playwright"],
+      "devOps": ["Docker", "GitHub Actions"]
+    },
+    "features": [
+      "User authentication and authorization using JWT",
+      "CRUD operations for blog posts with persistent like and comment functionality",
+      "Comprehensive test coverage including unit, integration, and end-to-end tests",
+      "Automated CI/CD deployment pipeline with containerization"
+    ],
+    "architecture": {
+      "database": "MongoDB",
+      "authentication": "JWT Bearer Token",
+      "stateManagement": "Redux"
+    }
+  },
+  {
+    "id": "patientor",
+    "name": "Patientor",
+    "category": "Full Stack TypeScript",
+    "description": "A medical record management system designed for healthcare providers to track patient entries, medical diagnosis codes, and sensitive health histories with strict type safety.",
+    "techStack": {
+      "frontend": ["React", "TypeScript", "Material UI", "Axios"],
+      "backend": ["Node.js", "Express", "TypeScript"],
+      "testing": ["Vitest"],
+      "devOps": ["Docker"]
+    },
+    "features": [
+      "Strict end-to-end type safety using TypeScript interfaces and types",
+      "Runtime request validation and data parsing using Zod schemas",
+      "Patient record navigation with detailed medical entry breakdowns",
+      "ICD-10 medical code lookup and classification system"
+    ],
+    "architecture": {
+      "database": "In-Memory / Document Store",
+      "authentication": "Role-based Access Control",
+      "stateManagement": "React Hooks & Context"
+    }
+  },
+  {
+    "id": "health-app",
+    "name": "Health App",
+    "category": "Full Stack Health & Fitness",
+    "description": "A health metrics tracking application designed to monitor physical activities, nutrition data, and vital statistics with visual progress analytics.",
+    "techStack": {
+      "frontend": ["React", "TypeScript", "Tailwind CSS"],
+      "backend": ["Node.js", "Express", "PostgreSQL"],
+      "testing": ["Jest", "React Testing Library"],
+      "devOps": ["Docker"]
+    },
+    "features": [
+      "Daily health activity monitoring and target goal tracking",
+      "Data visualization dashboards for health progress analysis",
+      "Secure API integration for real-time fitness data synchronization",
+      "Responsive user interface optimized across mobile and desktop devices"
+    ],
+    "architecture": {
+      "database": "PostgreSQL",
+      "authentication": "JWT Bearer Token",
+      "stateManagement": "Zustand"
+    }
+  }
+]
