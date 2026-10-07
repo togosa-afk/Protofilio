@@ -100,7 +100,10 @@ export default function ContactMe () {
                         Select primary scope
                       </span>
                     </label>
-                    <div className="flex flex-wrap gap-space-xs" id="scope-selector">
+                    <div
+                      className="flex flex-wrap gap-space-xs"
+                      id="scope-selector"
+                    >
                       {projectTypes.map((projectType) => {
                         const isSelected = selectedProjectType === projectType;
 
@@ -258,7 +261,7 @@ export default function ContactMe () {
                   </p>
                   <a
                     className="inline-flex items-center justify-between w-full px-space-md py-space-sm bg-surface-subtle hover:bg-surface-container-high rounded-lg text-primary font-label-md text-label-md transition-colors"
-                    href="https://cal.com"
+                    href="https://cal.com/mohammed-alqadi"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
