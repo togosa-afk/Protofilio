@@ -17,7 +17,7 @@ export default function NavBar() {
               alt="Minimalist desktop UI preview of Patientor clinical diagnostics dashboard, showing structured EHR tables, clean medical telemetry widgets, subtle light slate tones and crisp typography"
               width={100}
               height={100}
-              src={"/profile.png"}
+              src={"/patApp.png"}
             />
           </div>
           <div className="p-5 flex flex-col flex-1 justify-between gap-4">
@@ -38,12 +38,15 @@ export default function NavBar() {
                 static typing and runtime validation for patient health records.
               </p>
             </div>
-            <div className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1">
+            <Link 
+              className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1"
+              href="/projects"
+            >
               <span>Inspect architecture</span>
               <span className="material-symbols-outlined text-[1rem] group-hover:translate-x-1 transition-transform">
                 <MoveRight />
               </span>
-            </div>
+            </Link>
           </div>
         </div>
         {/* <!-- Showcase Card 2 --> */}
@@ -52,7 +55,7 @@ export default function NavBar() {
             <Image
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
               alt="Mobile app interface rendered in a sleek iPhone bezel showing Rate Repository App with dark subtle cards, Apollo GraphQL analytics telemetry, smooth repository stars sparkline, minimal layout"
-              src={"/profile.png"}
+              src={"/phoneApp.png"}
               width={100}
               height={100}
             />
@@ -75,12 +78,13 @@ export default function NavBar() {
                 caching, smooth infinite scroll lists, and 60fps animations.
               </p>
             </div>
-            <div className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1">
+            <Link className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1"
+              href="/projects">
               <span>Explore repository</span>
               <span className="material-symbols-outlined text-[1rem] group-hover:translate-x-1 transition-transform">
                 <MoveRight />
               </span>
-            </div>
+            </Link>
           </div>
         </div>
         {/* <!-- Showcase Card 3 --> */}
@@ -91,7 +95,7 @@ export default function NavBar() {
               alt="Cloud CI/CD infrastructure diagram with clean node trees, automated GitHub Actions pipeline stages, zero-downtime container cluster monitors, sharp vector telemetry aesthetics"
               width={100}
               height={100}
-              src={"/profile.png"}
+              src={"/cicd.png"}
             />
           </div>
           <div className="p-5 flex flex-col flex-1 justify-between gap-4">
@@ -113,12 +117,12 @@ export default function NavBar() {
                 rollouts.
               </p>
             </div>
-            <div className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1">
-              {/* <Link to={'../'}>View pipeline spec</Link> */}
+            <Link className="flex items-center text-primary font-label-sm text-label-sm gap-1 pt-1"
+              href="/projects">
               <span className="material-symbols-outlined text-[1rem] group-hover:translate-x-1 transition-transform">
                 <MoveRight />
               </span>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,7 +1,25 @@
 "use client";
 import { ArrowRight, BriefcaseBusiness, CalendarDays, CalendarSync, Code, Copy, Mail, SquareArrowOutUpRight, Tickets } from "lucide-react";
+import { createContantForm } from "@/app/actions/contact";
+import { useActionState, useState } from "react";
+
+const projectTypes = [
+  "Full-Stack Web App",
+  "React Native Mobile",
+  "GraphQL Architecture",
+  "CI/CD & DevOps",
+  "Consultation",
+] as const;
 
 export default function ContactMe () {
+  const [state, formAction] = useActionState(createContantForm, {
+    errors: {},
+    success: false,
+  });
+  const [selectedProjectType, setSelectedProjectType] = useState<string>(
+    projectTypes[0],
+  );
+
   return (
     <>
       <main className="w-full pt-16 min-h-screen bg-surface">
@@ -32,7 +50,11 @@ export default function ContactMe () {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
               {/* <!-- Left Column: Architectural Inquiry Form --> */}
               <div className="lg:col-span-7 bg-canvas rounded-xl shadow-sm p-space-lg lg:p-space-xl relative">
-                <form className="space-y-space-lg" id="contact-inquiry-form">
+                <form
+                  className="space-y-space-lg"
+                  id="contact-inquiry-form"
+                  action={formAction}
+                >
                   {/* <!-- Identity Fields Grid --> */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                     <div className="flex flex-col gap-space-xs">
@@ -45,9 +67,11 @@ export default function ContactMe () {
                       <input
                         className="w-full px-space-md py-space-sm bg-surface-subtle focus:bg-canvas rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline transition-all duration-200 outline-none focus:shadow-md"
                         id="client-name"
+                        name="name"
                         placeholder="Elena Rostova"
                         required
                         type="text"
+                        maxLength={120}
                       />
                     </div>
                     <div className="flex flex-col gap-space-xs">
@@ -60,9 +84,11 @@ export default function ContactMe () {
                       <input
                         className="w-full px-space-md py-space-sm bg-surface-subtle focus:bg-canvas rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline transition-all duration-200 outline-none focus:shadow-md"
                         id="client-email"
+                        name="email"
                         placeholder="elena@company.io"
                         required
                         type="email"
+                        maxLength={320}
                       />
                     </div>
                   </div>
@@ -74,51 +100,33 @@ export default function ContactMe () {
                         Select primary scope
                       </span>
                     </label>
-                    <div
-                      className="flex flex-wrap gap-space-xs"
-                      id="scope-selector"
-                    >
-                      <button
-                        className="scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm bg-primary text-on-primary transition-all duration-150"
-                        data-value="Full-Stack Web App"
-                        type="button"
-                      >
-                        Full-Stack Web App
-                      </button>
-                      <button
-                        className="scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm bg-surface-subtle text-on-surface hover:bg-surface-container-high transition-all duration-150"
-                        data-value="React Native Mobile"
-                        type="button"
-                      >
-                        React Native Mobile
-                      </button>
-                      <button
-                        className="scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm bg-surface-subtle text-on-surface hover:bg-surface-container-high transition-all duration-150"
-                        data-value="GraphQL Architecture"
-                        type="button"
-                      >
-                        GraphQL Architecture
-                      </button>
-                      <button
-                        className="scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm bg-surface-subtle text-on-surface hover:bg-surface-container-high transition-all duration-150"
-                        data-value="CI/CD &amp; DevOps"
-                        type="button"
-                      >
-                        CI/CD &amp; DevOps
-                      </button>
-                      <button
-                        className="scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm bg-surface-subtle text-on-surface hover:bg-surface-container-high transition-all duration-150"
-                        data-value="Consultation"
-                        type="button"
-                      >
-                        Consultation
-                      </button>
+                    <div className="flex flex-wrap gap-space-xs" id="scope-selector">
+                      {projectTypes.map((projectType) => {
+                        const isSelected = selectedProjectType === projectType;
+
+                        return (
+                          <button
+                            aria-pressed={isSelected}
+                            className={`scope-chip px-space-md py-space-xs rounded-full font-label-sm text-label-sm transition-all duration-150 ${
+                              isSelected
+                                ? "bg-primary text-on-primary"
+                                : "bg-surface-subtle text-on-surface hover:bg-surface-container-high"
+                            }`}
+                            key={projectType}
+                            onClick={() => setSelectedProjectType(projectType)}
+                            type="button"
+                          >
+                            {projectType}
+                          </button>
+                        );
+                      })}
                     </div>
                     <input
                       id="selected-scope"
-                      name="scope"
+                      name="projectDetails"
                       type="hidden"
-                      value="Full-Stack Web App"
+                      value={selectedProjectType}
+                      readOnly
                     />
                   </div>
                   {/* <!-- Target Budget Range Segmented Array --> */}
@@ -132,7 +140,7 @@ export default function ContactMe () {
                     <input
                       id="target-budget"
                       type="text"
-                      name="target-budget"
+                      name="budget"
                       required
                       className="w-full px-space-md py-space-sm bg-surface-subtle focus:bg-canvas rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline transition-all duration-200 outline-none focus:shadow-md"
                     />
@@ -157,6 +165,7 @@ export default function ContactMe () {
                     <textarea
                       className="w-full px-space-md py-space-sm bg-surface-subtle focus:bg-canvas rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline transition-all duration-200 outline-none focus:shadow-md resize-none"
                       id="project-details"
+                      name="description"
                       maxLength={1000}
                       placeholder="Tell me about the goals, existing system dependencies, target deliverables, or the core problem you need solved..."
                       required
@@ -176,9 +185,12 @@ export default function ContactMe () {
                     <button
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container shadow-sm hover:shadow-md transition-all duration-200 group"
                       id="submit-btn"
+                      disabled={state.success}
                       type="submit"
                     >
-                      <span id="btn-text">Send Inquiry</span>
+                      <span id="btn-text">
+                        {state.success ? "Inquiry Sent" : "Send Inquiry"}
+                      </span>
                       <span
                         className="material-symbols-outlined text-[1.125rem] transition-transform duration-200 group-hover:translate-x-1"
                         id="btn-icon"
@@ -194,20 +206,30 @@ export default function ContactMe () {
                     </button>
                   </div>
                   {/* <!-- Feedback Status Alert Banner --> */}
-                  <div
-                    className="hidden p-space-md rounded-lg bg-surface-container-high transition-opacity"
-                    id="form-feedback"
-                  >
-                    <div className="flex items-center gap-space-sm">
-                      <span className="material-symbols-outlined text-success">
-                        check_circle
-                      </span>
-                      <p className="font-body-sm text-body-sm text-on-surface">
-                        Thank you! Your message has been routed to my personal
-                        inbox. I&apos;ll get back to you shortly.
-                      </p>
+                  {(state.success || Object.keys(state.errors).length > 0) && (
+                    <div
+                      aria-live="polite"
+                      className="p-space-md rounded-lg bg-surface-container-high"
+                      id="form-feedback"
+                      role={state.success ? "status" : "alert"}
+                    >
+                      {state.success ? (
+                        <p className="font-body-sm text-body-sm text-on-surface">
+                          {state.warning ??
+                            "Thank you! Your inquiry has been saved and emailed. I'll get back to you shortly."}
+                        </p>
+                      ) : (
+                        <ul className="font-body-sm text-body-sm text-on-surface">
+                          {Object.entries(state.errors).flatMap(
+                            ([field, messages]) =>
+                              (messages ?? []).map((message, index) => (
+                                <li key={`${field}-${index}`}>{message}</li>
+                              )),
+                          )}
+                        </ul>
+                      )}
                     </div>
-                  </div>
+                  )}
                 </form>
               </div>
               {/* <!-- Right Column: Direct Channels, Schedule, Verification & FAQ --> */}
