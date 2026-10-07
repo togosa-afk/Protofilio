@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
@@ -29,13 +30,13 @@ export default function NavBar() {
             </div>
           </div>
           <div className="flex items-center gap-space-sm">
-            <a
+            <Link
               className="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors"
               data-path="contact"
-              href="#"
+              href={'/contact'}
             >
               Get in touch
-            </a>
+            </Link>
             <Image
               alt="Profile"
               className="w-8 h-8 rounded-full object-cover border border-border-subtle ml-space-xs"

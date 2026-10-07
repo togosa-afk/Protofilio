@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Code, MessageCircleMore } from "lucide-react";
+import { BriefcaseBusiness, Code } from "lucide-react";
 
 export default function Fotter() {
   return (
@@ -10,7 +10,7 @@ export default function Fotter() {
               Designed with architectural precision
             </span>
             <span className="font-body-sm text-body-sm text-on-surface-variant">
-              © 2025 Alex Rivera. Built with Nuxt &amp; Tailwind.
+              © 2025 Mohammed Alqadi. Built with Next.js &amp; Tailwind.
             </span>
           </div>
           <div className="flex items-center gap-space-md">
@@ -23,18 +23,10 @@ export default function Fotter() {
               <span className="material-symbols-outlined text-[1.25rem]"><Code /></span>
             </a>
             <a
-              aria-label="Community chat"
-              className="p-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle transition-colors flex items-center justify-center"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[1.25rem]">
-                <MessageCircleMore />
-              </span>
-            </a>
-            <a
               aria-label="Professional network"
               className="p-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle transition-colors flex items-center justify-center"
-              href="#"
+              href="https:www.linkedin.com/in/mohammed-alqadi-7141a5350"
+              target="blank"
             >
               <span className="material-symbols-outlined text-[1.25rem]"><BriefcaseBusiness /></span>
             </a>

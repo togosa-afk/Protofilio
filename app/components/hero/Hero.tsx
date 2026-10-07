@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, Code, MoveUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from 'next/link'
 
 export default function HeroSection() {
   return (
@@ -33,15 +34,15 @@ export default function HeroSection() {
         </p>
         {/* <!-- Pill Action Bar & Status --> */}
         <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-          <a
+          <Link
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-on-surface-variant transition-all duration-200 group"
-            href="#featured-projects"
+            href={'/projects'}
           >
             <span>Explore Projects</span>
             <span className="material-symbols-outlined text-[1.125rem] group-hover:translate-x-0.5 transition-transform">
               <MoveUpRight />
             </span>
-          </a>
+          </Link>
           <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container-lowest shadow-sm text-on-surface">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
