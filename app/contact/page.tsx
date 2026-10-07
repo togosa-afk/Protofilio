@@ -157,10 +157,10 @@ export default function ContactMe () {
                     <textarea
                       className="w-full px-space-md py-space-sm bg-surface-subtle focus:bg-canvas rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline transition-all duration-200 outline-none focus:shadow-md resize-none"
                       id="project-details"
-                      maxLength="1000"
+                      maxLength={1000}
                       placeholder="Tell me about the goals, existing system dependencies, target deliverables, or the core problem you need solved..."
                       required
-                      rows="4"
+                      rows={4}
                     ></textarea>
                   </div>
                   {/* <!-- Bottom Action Bar --> */}
