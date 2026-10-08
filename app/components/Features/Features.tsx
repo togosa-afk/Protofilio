@@ -119,7 +119,8 @@ export default function Features () {
                   Vitest, Supertest, and automated canary deployments on cloud
                   infrastructure.
                 </p>
-                <a
+                {/* TODO:FIX : implement real route here */}
+                <a  
                   className="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary font-medium mt-2 group/link"
                   href="#"
                 >

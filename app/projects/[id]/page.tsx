@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getById } from "@/app/services/projects";
+import NavBar from "@/app/components/navbar/NavBar";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -39,7 +40,9 @@ export default async function Project({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-surface font-body-md text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <>
+    <NavBar/>
+    <main className="min-h-screen mt-7 bg-surface font-body-md text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
       <div className="mx-auto w-full max-w-6xl px-margin-mobile py-8 md:px-margin md:py-12">
         <Link
           href="/projects"
@@ -201,5 +204,6 @@ export default async function Project({ params }: PageProps) {
         </div>
       </div>
     </main>
+    </>
   );
 }

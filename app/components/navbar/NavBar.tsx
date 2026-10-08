@@ -19,15 +19,16 @@ export default function NavBar() {
                 Mohammed.dev
               </span>
             </a>
-            <div className="hidden sm:inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-subtle border border-border-subtle">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
-              </span>
-              <span className="font-label-sm text-label-sm text-on-surface-variant font-medium">
-                Available for new projects
-              </span>
-            </div>
+          </div>
+          <div className="flex items-center gap-space-sm">
+            <nav className="flex items-center gap-space-sm">
+              <Link href={'/'}>
+                Home
+              </Link>
+              <Link href={'/projects'}>
+                Projects
+              </Link>
+            </nav>
           </div>
           <div className="flex items-center gap-space-sm">
             <Link
